@@ -266,7 +266,7 @@ body {
 /* CTA BUTTON */
 .cta-btn {
   position: absolute;
-  left: 38%;
+  left: 42%;
   bottom: 34px;
   transform: translateX(-50%);
   width: 290px;
@@ -541,158 +541,209 @@ body {
   }
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE UPDATED ================= */
 @media (max-width: 767px) {
 
   html,
   body {
     overflow-x: hidden;
-    overflow-y: auto;
   }
 
   .hero {
-    min-height: 50vh;
+    min-height: auto;
     padding: 0;
   }
 
+
+  .line-break {
+    display: block;
+  }
+
   .hero-content {
-    min-height: 50vh;
+    min-height: auto;
+    padding: 34px 14px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding: 36px 16px 0;
   }
 
+  /* RESET */
   .top-text,
   .hero-heading-wrapper,
+  .left-text,
+  .right-text,
   .hero-img,
   .cta-btn {
     position: static;
+    top: auto;
     left: auto;
     right: auto;
-    top: auto;
     bottom: auto;
     transform: none;
   }
 
-  .left-text,
-  .right-text {
-    display: none;
-  }
-
+  /* TOP TEXT */
   .top-text {
-    order: 1;
     width: 100%;
-    padding: 0;
     text-align: center;
-    font-size: 15px;
-    line-height: 1.4;
-    margin-bottom: 14px;
-    margin-top: 60px;
+    font-size: 14px;
+    line-height: 1.45;
+    margin-top: 58px;
+    margin-bottom: 10px;
+    padding: 0;
   }
 
+  /* HEADING */
   .hero-heading-wrapper {
-    order: 2;
     width: 100%;
-    position: static;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
   }
 
   .hero-heading-wrapper h1 {
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
+    font-size: 21px;
+    line-height: 1.18;
     text-align: center;
-    font-size: 20px;
-    line-height: 1.16;
+    padding: 0;
+    margin: 0;
     text-shadow: none;
-    margin: 0 auto;
   }
 
-  .hero-img {
-    order: 3;
-    width: 320px;
-    margin: 0 auto;
-    position: relative;
-    bottom: -65px;
-    flex: 1;
+  /* MAIN ROW */
+  .hero-side-row {
+    width: 100%;
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
+    gap: 6px;
   }
 
+  /* LEFT */
+  .left-text {
+    width: 30%;
+    text-align: left;
+  }
+
+  /* RIGHT */
+  .right-text {
+    width: 30%;
+    text-align: right;
+  }
+
+  /* IMAGE */
+  .hero-img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: -57px;
+  }
+
+  .hero-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: scale(1.3);
+  }
+
+  /* TEXT */
+  .left-text p,
+  .right-text p,
+  .count-box span {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .hero-quote-icon {
+    font-size: 17px;
+    margin-bottom: 3px;
+  }
+
+  .count-box {
+    margin-top: 10px;
+  }
+
+  .count-box h3 {
+    font-size: 22px;
+    margin-bottom: 2px;
+    line-height: 1;
+  }
+
+  /* BUTTON */
   .cta-btn {
-    order: 4;
-    width: 210px;
-    height: 52px;
+    width: 180px;
+    height: 45px;
+    margin-top: 18px;
+    margin-bottom: 20px;
     padding: 6px 6px 6px 14px;
-    margin: 0 auto 16px;
-    position: static;
-    transform: none;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 
   .btn-text {
     width: calc(100% - 44px);
-    height: 40px;
-    font-size: 12px;
+    height: 35px;
+    font-size: 11.5px;
   }
 
   .btn-icon {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
   }
 
   .btn-icon i {
     font-size: 13px;
   }
 
+  /* BG */
   .hero-bg-topright {
-    width: 300px !important;
-    opacity: 0.7;
+    width: 260px !important;
+    opacity: 0.65;
   }
 
   .hero-bg-leftcenter {
-    width: 250px !important;
-    opacity: 0.6;
+    width: 210px !important;
+    opacity: 0.55;
   }
 }
 
-/* ================= SMALL MOBILE ================= */
-@media (max-width: 480px) {
-  .hero-content {
-    padding-top: 30px;
-  }
 
-  .top-text {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 480px) {
 
   .hero-heading-wrapper h1 {
     font-size: 18px;
-    margin-bottom: 12px;
   }
 
-  .cta-btn {
-    width: 170px;
-    height: 48px;
+  .hero-side-row {
+    gap: 4px;
   }
 
-  .btn-text {
-    font-size: 11px;
-    height: 36px;
+  .left-text,
+  .right-text {
+    width: 31%;
   }
 
-  .btn-icon {
-    width: 33px;
-    height: 33px;
+  /* .hero-img {
+    width: 38%;
+  } */
+
+  .left-text p,
+  .right-text p,
+  .count-box span {
+    font-size: 10px;
   }
 
-  .btn-icon i {
-    font-size: 12px;
+  .count-box h3 {
+    font-size: 18px;
   }
+
+  .hero-quote-icon {
+    font-size: 15px;
+  }
+
+
 }
 
 /* ================= RECONNECT SECTION ================= */
@@ -1888,7 +1939,7 @@ body {
   padding: 28px 20px 26px;
   /* text-align: left;  */
   height: 330px;
-  overflow-y: auto; 
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
@@ -2129,10 +2180,10 @@ body {
 .cta-wave__content {
   position: relative;
   background: #b9d8d1;
-  padding: 60px 20px 70px;
+  padding: 60px 20px 20px;
   /* max-width: 1400px; */
   margin: 0 auto;
-  overflow: clip ; 
+  overflow: clip;
 }
 
 /* ===== DECO ASTERISK ICONS ===== */
@@ -2376,7 +2427,7 @@ body {
   }
 
   .cta-wave__content {
-    padding: 40px 20px 50px;
+    padding: 40px 20px 20px;
     isolation: isolate;
   }
 
