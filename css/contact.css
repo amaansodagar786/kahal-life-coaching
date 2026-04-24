@@ -16,24 +16,38 @@ body {
   background: linear-gradient(to bottom, #b9d8d1, #909393);
 }
 
-
-
 /* ================= CONTACT HERO SECTION ================= */
 .contact-hero {
   width: 100%;
   height: 100vh;
-  /* Desktop default */
   position: relative;
   overflow: hidden;
-  background: linear-gradient(to bottom, #b9d8d1, #FFF);
+  /* BG IMAGE from Unsplash - REPLACES gradient */
+  background: url('/assets/images/contact/hero.svg') center center / cover no-repeat;
+  /* background-color: #b0cbc2;  */
+  /* fallback */
 }
+
+/* Soft overlay for readability (keeps text contrast like original gradient) */
+/* .contact-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.55);
+  z-index: 0;
+  pointer-events: none;
+} */
 
 /* ================= BG PNG IMAGES ================= */
 .contact-hero-bg-img {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   user-select: none;
+  display: none;
 }
 
 .contact-hero-bg-topright {
@@ -47,7 +61,7 @@ body {
   top: 65%;
   left: 0;
   transform: translateY(-50%);
-  width: 400px ; 
+  width: 400px;
   height: auto;
 }
 
@@ -58,7 +72,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -110,7 +124,7 @@ body {
   height: 100%;
   max-width: 1350px;
   margin: 0 auto;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,7 +156,7 @@ body {
   font-weight: 400;
 }
 
-/* ================= BUTTON (SAME AS ORIGINAL) ================= */
+/* ================= BUTTON ================= */
 .contact-hero-btn {
   position: relative;
   width: 290px;
@@ -211,9 +225,7 @@ body {
   font-size: 18px;
 }
 
-/* ================= RESPONSIVE HEIGHTS (as requested) ================= */
-/* Desktop: 100vh (default already set) */
-
+/* ================= RESPONSIVE HEIGHTS ================= */
 /* Tablet: 78vh */
 @media (max-width: 1024px) {
   .contact-hero {
@@ -311,7 +323,7 @@ body {
   }
 }
 
-/* Small mobile adjustment */
+/* Small mobile */
 @media (max-width: 480px) {
   .contact-hero {
     height: 51vh;
@@ -343,14 +355,12 @@ body {
   }
 }
 
-/* Large desktop fix (above 1440px) */
+/* Large desktop */
 @media (min-width: 1440px) {
   .contact-hero {
     height: 100vh;
   }
 }
-
-
 
 
 
