@@ -405,3 +405,40 @@
 
 
 }
+
+
+/* ================= FOOTER TOP WAVE (FOR OTHER 2 PAGES) ================= */
+
+.footer-wave-top {
+  line-height: 0;
+  background: #b9d8d1;
+}
+
+.footer-wave-top svg {
+  width: 100%;
+  height: 110px;
+  display: block;
+}
+
+.footer-wave-top path {
+  fill: #fffaff;
+}
+
+/* Hide mobile wave on desktop, show on mobile */
+.footer-wave-top .wave-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .footer-wave-top .wave-desktop {
+    display: none;
+  }
+  
+  .footer-wave-top .wave-mobile {
+    display: block;
+  }
+  
+  .footer-wave-top svg {
+    height: 85px;
+  }
+}
