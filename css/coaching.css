@@ -128,7 +128,7 @@ body {
   height: 66px;
   border: none;
   border-radius: 999px;
-  background: rgba(215, 226, 220, 0.3);
+  background: #b9d8d1c0;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: inline-flex;
@@ -142,7 +142,7 @@ body {
 }
 
 .coaching-hero-btn:hover {
-  background: rgba(215, 226, 220, 0.5);
+  background: #b9d8d1;
   transform: scale(1.03);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
@@ -373,8 +373,20 @@ body {
 
 
 
+@media (min-width: 1600px) and (max-width: 2500px) {
+
+  .coaching-hero-bg-leftcenter {
+    top: 65%;
+    width: 500px
+  }
+
+  .coaching-hero-bg-topright {
+
+    width: 500px
+  }
 
 
+}
 
 
 
@@ -390,6 +402,15 @@ body {
 .story-container {
   max-width: 1320px;
   margin: 0 auto;
+}
+
+/* ===== HELPER CLASSES ===== */
+.desktop-story {
+  display: grid;
+}
+
+.mobile-story-content {
+  display: none;
 }
 
 /* ===== HEADING with VERTICAL LINE ===== */
@@ -416,7 +437,7 @@ body {
   line-height: 1.1;
 }
 
-/* ===== GRID ===== */
+/* ===== GRID (DESKTOP) ===== */
 .story-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -438,14 +459,14 @@ body {
   text-align: justify;
 }
 
-/* First Letter Drop Cap */
+/* First Letter Drop Cap (Desktop) */
 .first-letter p:first-child::first-letter {
   font-size: 60px;
   font-weight: 700;
   float: left;
-  line-height: 1;
+  line-height: 0.5;
   padding-right: 8px;
-  margin-top: 4px;
+  margin-top: 10px;
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -470,10 +491,9 @@ body {
   z-index: 2;
 }
 
-/* ===== ICONS (asterisk) - NO ANIMATION ===== */
+/* ===== ICONS (asterisk) ===== */
 .story-icon {
   position: absolute;
-
   color: #2aaa8a;
   font-variation-settings:
     "FILL" 0,
@@ -498,10 +518,29 @@ body {
   font-size: 48px !important;
 }
 
-/* ============================================ */
-/* DESKTOP DEFAULT (no changes)                */
-/* ============================================ */
-/* Image stays in 2nd column (right side) on desktop */
+/* ===== MOBILE/TABLET TEXT STYLES ===== */
+.mobile-story-text {
+  width: 100%;
+}
+
+.mobile-story-text p {
+  font-family: "Rosario", sans-serif;
+  font-size: 19px;
+  line-height: 1.75;
+  color: #111;
+  margin-bottom: 22px;
+}
+
+/* First Letter Drop Cap (Mobile/Tablet) */
+.first-letter-mobile p:first-child::first-letter {
+  font-size: 60px;
+  font-weight: 700;
+  float: left;
+  line-height: 0.5;
+  padding-right: 8px;
+  margin-top: 10px;
+  font-family: "Ubuntu", sans-serif;
+}
 
 /* ============================================ */
 /* TABLET (max-width: 1024px)                  */
@@ -516,7 +555,7 @@ body {
   }
 
   .story-heading h2 {
-    font-size: 38px;
+    font-size: 40px;
   }
 
   .story-line {
@@ -524,30 +563,17 @@ body {
     width: 7px;
   }
 
-  /* CHANGE TO 1 COLUMN */
-  .story-grid {
-    grid-template-columns: 1fr;
-    gap: 35px;
+  /* HIDE desktop version */
+  .desktop-story {
+    display: none;
   }
 
-  /* REORDER: Image first, then texts */
-  .story-image-wrapper {
-    order: 1;
+  /* SHOW mobile/tablet version */
+  .mobile-story-content {
+    display: block;
   }
 
-  .first-letter {
-    order: 2;
-  }
-
-  .order-text-2 {
-    order: 3;
-  }
-
-  .order-text-3 {
-    order: 4;
-  }
-
-  .story-text p {
+  .mobile-story-text p {
     font-size: 18px;
     line-height: 1.75;
   }
@@ -570,8 +596,12 @@ body {
     right: -21px;
   }
 
-  .first-letter p:first-child::first-letter {
+  .first-letter-mobile p:first-child::first-letter {
     font-size: 52px;
+  }
+
+  .mobile-image {
+    margin-bottom: 35px;
   }
 }
 
@@ -593,33 +623,21 @@ body {
   }
 
   .story-line {
-    height: 40px;
-    width: 5px;
+    height: 36px;
+    width: 6px;
   }
 
-  .story-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
+  /* HIDE desktop version */
+  .desktop-story {
+    display: none;
   }
 
-  /* REORDER: Image first, then texts */
-  .story-image-wrapper {
-    order: 1;
+  /* SHOW mobile/tablet version */
+  .mobile-story-content {
+    display: block;
   }
 
-  .first-letter {
-    order: 2;
-  }
-
-  .order-text-2 {
-    order: 3;
-  }
-
-  .order-text-3 {
-    order: 4;
-  }
-
-  .story-text p {
+  .mobile-story-text p {
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 18px;
@@ -630,7 +648,7 @@ body {
     border-radius: 0 30px 0 30px;
   }
 
-  .first-letter p:first-child::first-letter {
+  .first-letter-mobile p:first-child::first-letter {
     font-size: 48px;
   }
 
@@ -647,6 +665,10 @@ body {
     bottom: -16px;
     right: -16px;
   }
+
+  .mobile-image {
+    margin-bottom: 28px;
+  }
 }
 
 /* ============================================ */
@@ -662,25 +684,21 @@ body {
   }
 
   .story-line {
-    height: 35px;
-    width: 4px;
+    height: 32px;
+    width: 5px;
   }
 
-  .story-grid {
-    gap: 24px;
-  }
-
-  .story-text p {
+  .mobile-story-text p {
     font-size: 15px;
     line-height: 1.65;
   }
 
   .story-image-container img {
-    height: 240px;
+    height: 220px;
     border-radius: 0 25px 0 25px;
   }
 
-  .first-letter p:first-child::first-letter {
+  .first-letter-mobile p:first-child::first-letter {
     font-size: 42px;
   }
 
@@ -697,10 +715,11 @@ body {
     bottom: -14px;
     right: -14px;
   }
+
+  .mobile-image {
+    margin-bottom: 22px;
+  }
 }
-
-
-
 
 
 
@@ -715,34 +734,28 @@ body {
 
 .coaching-container {
   max-width: 1320px;
-  /* Same width as other sections */
   margin: 0 auto;
 }
 
-/* Heading Left Side - SAME as other sections */
+/* Heading Left Side */
 .coaching-heading-wrap {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 18px;
-  /* Matches other sections */
   margin-bottom: 55px;
 }
 
 .coaching-line {
   width: 8px;
-  /* Same as other sections */
   height: 60px;
-  /* Same as other sections */
   background: #000;
   border-radius: 999px;
 }
 
 .coaching-heading-wrap h2 {
   font-family: "Ubuntu", sans-serif;
-  /* Same font */
   font-size: 48px;
-  /* Matches Story section */
   font-weight: 800;
   color: #000;
   margin: 0;
@@ -781,7 +794,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   background: #596669;
-  /* Changed to match brand color */
   padding: 16px 28px;
   min-width: 78%;
   border-radius: 100px;
@@ -800,14 +812,14 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* List */
+/* MAIN LIST - Star/Diamond bullet */
 .coaching-card ul {
   margin: 0;
   padding-left: 24px;
   list-style: none;
 }
 
-.coaching-card ul li {
+.coaching-card>ul>li {
   font-family: "Rosario", sans-serif;
   font-size: 17px;
   line-height: 1.75;
@@ -817,8 +829,8 @@ body {
   padding-left: 8px;
 }
 
-/* Custom bullet point */
-.coaching-card ul li::before {
+/* Main bullet = ✦ */
+.coaching-card>ul>li::before {
   content: "✦";
   color: #2aaa8a;
   font-size: 16px;
@@ -827,7 +839,7 @@ body {
   top: 2px;
 }
 
-/* Inner List */
+/* NESTED LIST - Different bullet (dot) */
 .inner-list {
   margin-top: 12px !important;
   padding-left: 22px !important;
@@ -837,12 +849,17 @@ body {
 .inner-list li {
   font-size: 17px !important;
   margin-bottom: 10px !important;
+  position: relative;
+  padding-left: 8px;
 }
 
+/* Nested bullet = • (dot) - DIFFERENT from main */
 .inner-list li::before {
-  content: "•";
+  /* content: "•"; */
+  content: "▹";
   color: #2aaa8a;
   font-size: 18px;
+  position: absolute;
   left: -18px;
   top: 0px;
 }
@@ -871,7 +888,6 @@ body {
 
   .coaching-grid {
     grid-template-columns: 1fr;
-    /* Stack cards vertically */
     gap: 70px;
   }
 
@@ -887,7 +903,7 @@ body {
     padding: 78px 30px 34px;
   }
 
-  .coaching-card ul li {
+  .coaching-card>ul>li {
     font-size: 17px;
     line-height: 1.7;
   }
@@ -943,13 +959,13 @@ body {
     padding-left: 20px;
   }
 
-  .coaching-card ul li {
+  .coaching-card>ul>li {
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 16px;
   }
 
-  .coaching-card ul li::before {
+  .coaching-card>ul>li::before {
     font-size: 14px;
     left: -18px;
     top: 2px;
@@ -988,7 +1004,7 @@ body {
     font-size: 16px;
   }
 
-  .coaching-card ul li {
+  .coaching-card>ul>li {
     font-size: 15px;
   }
 
@@ -996,8 +1012,6 @@ body {
     font-size: 14px !important;
   }
 }
-
-
 
 
 /* ===================================
@@ -1239,7 +1253,7 @@ body {
 @media(max-width:767px) {
   .kahal-work {
     padding: 60px 15px;
-    height: 75vh;
+    height: 90vh;
   }
 
   .kahal-heading-line {
@@ -1252,7 +1266,7 @@ body {
   }
 
   .kahal-heading-line h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .kahal-subheading {
@@ -1267,8 +1281,8 @@ body {
   }
 
   .kahal-image-wrap {
-    width: 320px;
-    left: -20px;
+    width: 270px;
+    left: -10px;
   }
 
   .point {
@@ -1276,41 +1290,41 @@ body {
   }
 
   .point-text h3 {
-    font-size: 12px;
+    font-size: 11.5px;
     margin-bottom: 4px;
   }
 
   .point-text p {
-    font-size: 10px;
+    font-size: 9.5px;
     line-height: 1.35;
   }
 
   /* YOUR MOBILE POSITIONS - KEPT AS IS */
   .point-1 {
-    top: 25px;
+    top: 15px;
     left: 30px;
   }
 
   .point-2 {
-    top: 95px;
-    left: 130px;
+    top: 70px;
+    left: 120px;
   }
 
   .point-3 {
-    top: 155px;
-    left: 225px;
+    top: 125px;
+    left: 195px;
     max-width: 145px;
   }
 
   .point-4 {
-    top: 260px;
-    left: 290px;
+    top: 220px;
+    left: 245px;
     max-width: 150px;
   }
 
   .point-5 {
-    top: 400px;
-    left: 280px;
+    top: 340px;
+    left: 240px;
     max-width: 145px;
   }
 
@@ -1319,10 +1333,10 @@ body {
   }
 }
 
-
-
 /* ===================================
    FULL UPDATED APPROACH SECTION CSS
+   Desktop: Split layout
+   Tablet & Mobile: Single paragraph flow
 =================================== */
 
 .approach-section {
@@ -1336,38 +1350,40 @@ body {
   margin: auto;
 }
 
-/* ===== HEADING - UPDATED to match other sections ===== */
+/* ===== Helper Classes ===== */
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* ===== HEADING ===== */
 .approach-heading {
   display: flex;
   align-items: center;
   gap: 18px;
-  /* UPDATED */
   margin-bottom: 45px;
 }
 
 .approach-line {
   width: 8px;
-  /* UPDATED: was 6px */
   height: 60px;
-  /* UPDATED: was 42px */
   background: #000;
   border-radius: 999px;
-  /* UPDATED */
 }
 
 .approach-heading h2 {
   font-family: "Ubuntu", sans-serif;
-  /* ADDED */
   margin: 0;
   font-size: 48px;
-  /* UPDATED: was 46px */
   font-weight: 800;
-  /* UPDATED: was 700 */
   color: #000;
   line-height: 1.1;
 }
 
-/* Main Box - YOUR POSITIONS KEPT */
+/* ===== DESKTOP LAYOUT (default) ===== */
 .approach-box {
   position: relative;
   min-height: 480px;
@@ -1387,7 +1403,7 @@ body {
   z-index: 1;
 }
 
-/* Image - YOUR POSITION KEPT */
+/* Image */
 .approach-image {
   position: absolute;
   top: -35px;
@@ -1401,9 +1417,7 @@ body {
   display: block;
 }
 
-/* =========================
-   TOP RIGHT TEXT - YOUR POSITION KEPT
-========================= */
+/* Top Right Text */
 .approach-top-text {
   position: relative;
   z-index: 5;
@@ -1414,7 +1428,6 @@ body {
 
 .approach-top-text p {
   font-family: "Rosario", sans-serif;
-  /* ADDED */
   margin: 0;
   margin-top: 80px;
   font-size: 19px;
@@ -1422,29 +1435,24 @@ body {
   color: #000;
 }
 
-/* =========================
-   BOTTOM TEXT - YOUR POSITION KEPT
-========================= */
+/* Bottom Left Text */
 .approach-bottom-text {
   position: absolute;
   left: 350px;
-  bottom: 40px;
+  bottom: 80px;
   max-width: 800px;
   z-index: 5;
 }
 
 .approach-bottom-text p {
   font-family: "Rosario", sans-serif;
-  /* ADDED */
   margin: 0;
   font-size: 19px;
   line-height: 1.8;
   color: #000;
 }
 
-/* ===================================
-   CONTENT BOX
-=================================== */
+/* Content Box */
 .approach-content-box {
   width: 100%;
   margin-top: 35px;
@@ -1455,7 +1463,6 @@ body {
 
 .approach-content-box p {
   font-family: "Rosario", sans-serif;
-  /* ADDED */
   margin: 0 0 22px;
   font-size: 19px;
   line-height: 1.8;
@@ -1469,16 +1476,16 @@ body {
 
 .approach-content-box ul li {
   font-family: "Rosario", sans-serif;
-  /* ADDED */
   font-size: 19px;
   line-height: 1.8;
   color: #000;
 }
 
 /* ===================================
-   TABLET VIEW - YOUR POSITIONS KEPT
+   TABLET VIEW (max-width: 1024px)
+   Single column, one complete paragraph
 =================================== */
-@media (max-width:1024px) {
+@media (max-width: 1024px) {
 
   .approach-section {
     padding: 70px 20px;
@@ -1486,6 +1493,7 @@ body {
 
   .approach-heading {
     gap: 14px;
+    margin-bottom: 35px;
   }
 
   .approach-line {
@@ -1497,47 +1505,58 @@ body {
     font-size: 40px;
   }
 
+  /* Hide desktop split text */
+  .desktop-only {
+    display: none;
+  }
+
+  /* Show mobile single paragraph */
+  .mobile-only {
+    display: block;
+  }
+
+  /* Reset .approach-box to normal flow */
   .approach-box {
-    min-height: 440px;
-  }
-
-  .approach-box::before {
-    top: 95px;
+    position: relative;
+    min-height: auto;
+    width: 100%;
+    background: #ebf4f2;
     border-radius: 38px;
+    padding: 30px 28px;
   }
 
-  /* YOUR TABLET POSITION - KEPT */
+  /* Hide the pseudo-element background */
+  .approach-box::before {
+    display: none;
+  }
+
+  /* Image becomes normal block */
   .approach-image {
-    width: 470px;
-    top: -10px;
-    left: 10px;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 25px auto;
+    z-index: auto;
   }
 
-  /* YOUR TABLET POSITION - KEPT */
-  .approach-top-text {
-    margin-left: 500px;
-    max-width: 300px;
-    padding-top: 60px;
+  /* Mobile text styling */
+  .approach-mobile-text {
+    position: relative;
+    z-index: auto;
   }
 
-  .approach-top-text p {
-    margin-top: 55px;
+  .approach-mobile-text p {
+    font-family: "Rosario", sans-serif;
+    margin: 0;
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
+    color: #000;
+    text-align: justify;
   }
 
-  /* YOUR TABLET POSITION - KEPT */
-  .approach-bottom-text {
-    left: 230px;
-    bottom: 60px;
-    max-width: 520px;
-  }
-
-  .approach-bottom-text p {
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
+  /* Content box adjustments */
   .approach-content-box {
     margin-top: 30px;
     padding: 35px 28px;
@@ -1552,17 +1571,17 @@ body {
 }
 
 /* ===================================
-   MOBILE VIEW - YOUR POSITIONS KEPT
+   MOBILE VIEW (max-width: 767px)
 =================================== */
-@media (max-width:767px) {
+@media (max-width: 767px) {
 
   .approach-section {
-    padding: 60px 15px;
+    padding: 50px 15px;
   }
 
   .approach-heading {
     gap: 12px;
-    margin-bottom: 35px;
+    margin-bottom: 28px;
   }
 
   .approach-line {
@@ -1571,61 +1590,38 @@ body {
   }
 
   .approach-heading h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .approach-box {
-    min-height: auto;
-    padding: 20px;
+    padding: 20px 18px;
     border-radius: 28px;
-    background: #ebf4f2;
   }
 
-  .approach-box::before {
-    display: none;
-  }
-
-  /* YOUR MOBILE POSITION - KEPT */
   .approach-image {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    margin-bottom: 18px;
-  }
-
-  /* YOUR MOBILE POSITION - KEPT */
-  .approach-top-text,
-  .approach-bottom-text {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    margin: 0;
     max-width: 100%;
-    padding: 0;
-    z-index: 5;
+    margin-bottom: 20px;
   }
 
-  .approach-top-text {
-    margin-bottom: 14px;
-  }
-
-  .approach-top-text p,
-  .approach-bottom-text p {
-    margin: 0;
+  .approach-mobile-text p {
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.7;
   }
 
   .approach-content-box {
     margin-top: 22px;
     padding: 24px 18px;
     border-radius: 24px;
+    text-align: justify;
   }
 
   .approach-content-box p,
   .approach-content-box ul li {
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.7;
+  }
+
+  .approach-content-box p {
+    margin-bottom: 18px;
   }
 }

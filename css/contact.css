@@ -1015,7 +1015,94 @@ body {
   }
 } */
 
+@media (min-width: 1600px) and (max-width: 2500px) {
 
+  .cf-inner {
+    max-width: 1500px;
+    margin: 0 auto !important;
+
+  }
+}
+
+
+/* ========== TOAST NOTIFICATION ========== */
+.cf-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  z-index: 9999;
+  min-width: 280px;
+  max-width: 450px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.cf-toast.cf-toast-show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.cf-toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cf-toast-success .cf-toast-content {
+  background: #2aaa8a;
+  color: white;
+}
+
+.cf-toast-error .cf-toast-content {
+  background: #dc3545;
+  color: white;
+}
+
+.cf-toast-warning .cf-toast-content {
+  background: #ffc107;
+  color: #333;
+}
+
+.cf-toast-content i {
+  font-size: 20px;
+}
+
+.cf-toast-progress {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: toastProgress 4s linear forwards;
+}
+
+.cf-toast-success .cf-toast-progress {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.cf-toast-error .cf-toast-progress {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.cf-toast-warning .cf-toast-progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@keyframes toastProgress {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
 
 
 

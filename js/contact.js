@@ -103,13 +103,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 /* =============================================
    CONTACT FORM JS — contact-form.js
-   Add BEFORE </body>: <script src="js/contact-form.js"></script>
+   Add BEFORE </body>: <script src="js/contact.js"></script>
    ============================================= */
 
-function cfHandleSubmit() {
+// ========== TOAST FUNCTION ==========
+function showToast(message, type = "success") {
+    // Remove existing toast if any
+    const existingToast = document.querySelector(".cf-toast");
+    if (existingToast) {
+        existingToast.remove();
+    }
+
+    // Create toast element
+    const toast = document.createElement("div");
+    toast.className = `cf-toast cf-toast-${type}`;
+
+    // Icon based on type
+    let icon = '<i class="fas fa-check-circle"></i>';
+    if (type === "error") icon = '<i class="fas fa-exclamation-circle"></i>';
+    if (type === "warning") icon = '<i class="fas fa-clock"></i>';
+
+    toast.innerHTML = `
+        <div class="cf-toast-content">
+            ${icon}
+            <span>${message}</span>
+        </div>
+        <div class="cf-toast-progress"></div>
+    `;
+
+    document.body.appendChild(toast);
+
+    // Show toast
+    setTimeout(() => {
+        toast.classList.add("cf-toast-show");
+    }, 10);
+
+    // Auto remove after 4 seconds
+    setTimeout(() => {
+        toast.classList.remove("cf-toast-show");
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 4000);
+}
+
+// ========== MAIN SUBMIT FUNCTION ==========
+async function cfHandleSubmit() {
     const btn = document.getElementById("cfSubmitBtn");
     const btnText = document.getElementById("cfBtnText");
     const btnIcon = document.getElementById("cfBtnIcon");
@@ -121,7 +162,7 @@ function cfHandleSubmit() {
     const brings = document.getElementById("cf-brings");
     const stuck = document.getElementById("cf-stuck");
     const interest = document.getElementById("cf-interest");
-    // cf-diff is optional — no validation needed
+    const different = document.getElementById("cf-diff");
 
     let valid = true;
 
@@ -176,21 +217,71 @@ function cfHandleSubmit() {
     btn.disabled = true;
     btn.classList.add("loading");
     btnText.textContent = "SENDING…";
-    btnIcon.innerHTML = '<i class="fas fa-spinner"></i>';
+    btnIcon.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
-    // ---- Simulate / Replace with real fetch ----
-    // Replace the setTimeout below with your actual fetch/axios call
-    setTimeout(() => {
-        // Hide form fields (optional: keep them, just show success)
-        btn.style.display = "none";
-        successMsg.style.display = "flex";
+    try {
+        const response = await fetch("http://localhost:5000/api/submit-form", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                firstName: fname.value.trim(),
+                email: email.value.trim(),
+                bringsYouHere: brings.value.trim(),
+                stuck: stuck.value.trim(),
+                interest: interest.value,
+                different: different.value.trim() || ""
+            })
+        });
 
-        // Reset button state (in case you want to reuse)
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+            // ---- SUCCESS ----
+            showToast("Thank you! We'll be in touch soon.", "success");
+
+            // Hide button, show success message
+            btn.style.display = "none";
+            successMsg.style.display = "flex";
+
+            // Clear form fields
+            fname.value = "";
+            email.value = "";
+            brings.value = "";
+            stuck.value = "";
+            interest.value = "";
+            different.value = "";
+        } else if (response.status === 429) {
+            // ---- 48-HOUR ERROR ----
+            showToast("You have already submitted within the last 48 hours. Please wait.", "warning");
+
+            // Reset button
+            btn.disabled = false;
+            btn.classList.remove("loading");
+            btnText.textContent = "SUBMIT";
+            btnIcon.innerHTML = '<i class="fas fa-arrow-right"></i>';
+        } else {
+            // ---- SERVER ERROR ----
+            showToast("Something went wrong. Try again later.", "error");
+
+            // Reset button
+            btn.disabled = false;
+            btn.classList.remove("loading");
+            btnText.textContent = "SUBMIT";
+            btnIcon.innerHTML = '<i class="fas fa-arrow-right"></i>';
+        }
+    } catch (error) {
+        console.error("Fetch error:", error);
+        // ---- NETWORK ERROR ----
+        showToast("Network error. Check your connection.", "error");
+
+        // Reset button
         btn.disabled = false;
         btn.classList.remove("loading");
         btnText.textContent = "SUBMIT";
         btnIcon.innerHTML = '<i class="fas fa-arrow-right"></i>';
-    }, 1800);
+    }
 }
 
 // ---- Live validation: clear error on input ----
@@ -220,24 +311,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
 /* =============================================
    FAQ JS — faq.js
    Add BEFORE </body>: <script src="js/faq.js"></script>
    ============================================= */
 
 function faqToggle(btn) {
-  const item = btn.closest(".faq__item");
-  const isActive = item.classList.contains("active");
+    const item = btn.closest(".faq__item");
+    const isActive = item.classList.contains("active");
 
-  // Close ALL other open items across entire grid
-  document.querySelectorAll(".faq__item.active").forEach(function (el) {
-    if (el !== item) {
-      el.classList.remove("active");
-    }
-  });
+    // Close ALL other open items across entire grid
+    document.querySelectorAll(".faq__item.active").forEach(function (el) {
+        if (el !== item) {
+            el.classList.remove("active");
+        }
+    });
 
-  // Toggle clicked item
-  item.classList.toggle("active", !isActive);
+    // Toggle clicked item
+    item.classList.toggle("active", !isActive);
 }
