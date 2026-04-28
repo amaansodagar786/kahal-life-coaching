@@ -220,7 +220,7 @@ async function cfHandleSubmit() {
     btnIcon.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
     try {
-        const response = await fetch("http://localhost:5000/api/submit-form", {
+        const response = await fetch("https://kahallifecoaching.com/api/contact/submit-form", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
