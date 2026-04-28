@@ -1363,3 +1363,17 @@ body {
     font-size: 13px;
   }
 }
+
+
+
+
+.mobilebreak {
+  display: none;
+}
+
+@media (max-width: 767px) {
+
+  .mobilebreak {
+    display: inline;
+  }
+}

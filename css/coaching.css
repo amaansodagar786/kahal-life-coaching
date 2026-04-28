@@ -201,17 +201,17 @@ body {
 }
 
 .coaching-hero-bg-topright {
-  top: 0;
+  top: 0%;
   right: 0;
-  width: clamp(340px, 35vw, 520px);
+  width: 600px;
   height: auto;
 }
 
 .coaching-hero-bg-leftcenter {
-  top: 65%;
+  top: 38%;
   left: 0;
   transform: translateY(-50%);
-  width: clamp(160px, 25vw, 380px);
+  width: 500px;
   height: auto;
 }
 
@@ -283,6 +283,19 @@ body {
   .coaching-btn-icon i {
     font-size: 15px;
   }
+
+  .coaching-hero-bg-leftcenter {
+    top: 24%;
+    width: 400px
+  }
+
+  .coaching-hero-bg-topright {
+    top: 39%;
+    right: -2%;
+    width: 450px
+  }
+
+
 }
 
 /* Mobile */
@@ -328,6 +341,18 @@ body {
 
   .coaching-btn-icon i {
     font-size: 13px;
+  }
+
+
+  .coaching-hero-bg-leftcenter {
+    top: 24%;
+    width: 400px
+  }
+
+  .coaching-hero-bg-topright {
+    top: 35%;
+    right: -3%;
+    width: 650px
   }
 }
 
@@ -376,13 +401,13 @@ body {
 @media (min-width: 1600px) and (max-width: 2500px) {
 
   .coaching-hero-bg-leftcenter {
-    top: 65%;
-    width: 500px
+    top: 35%;
+    width: 600px
   }
 
   .coaching-hero-bg-topright {
-
-    width: 500px
+    top: 10%;
+    width: 700px
   }
 
 
@@ -529,6 +554,7 @@ body {
   line-height: 1.75;
   color: #111;
   margin-bottom: 22px;
+  text-align: justify;
 }
 
 /* First Letter Drop Cap (Mobile/Tablet) */
@@ -644,7 +670,7 @@ body {
   }
 
   .story-image-container img {
-    height: 280px;
+    height: 290px;
     border-radius: 0 30px 0 30px;
   }
 
@@ -657,13 +683,15 @@ body {
   }
 
   .story-icon-top-left {
-    top: -16px;
-    left: -16px;
+    top: -10px;
+    left: 26px ;
+    font-size: 70px !important;
+     z-index: 1 !important;
   }
 
   .story-icon-bottom-right {
-    bottom: -16px;
-    right: -16px;
+    bottom: 40px;
+    right: 10px;
   }
 
   .mobile-image {
@@ -694,19 +722,20 @@ body {
   }
 
   .story-image-container img {
-    height: 220px;
+    height: 240px;
     border-radius: 0 25px 0 25px;
+    object-fit: contain;
   }
 
   .first-letter-mobile p:first-child::first-letter {
     font-size: 42px;
   }
 
-  .story-icon {
+  /* .story-icon {
     font-size: 28px !important;
-  }
+  } */
 
-  .story-icon-top-left {
+  /* .story-icon-top-left {
     top: -14px;
     left: -14px;
   }
@@ -714,13 +743,38 @@ body {
   .story-icon-bottom-right {
     bottom: -14px;
     right: -14px;
-  }
+  } */
 
   .mobile-image {
     margin-bottom: 22px;
   }
 }
 
+
+/* ===== DESKTOP ONLY - SPIN + SCALE HOVER EFFECT FOR ICONS ===== */
+
+@media (min-width: 1025px) {
+
+  /* Both icons get smooth transition */
+  .story-icon {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* Top-left icon hover effect - spin 180° + scale */
+  .story-icon-top-left:hover {
+    transform: rotate(180deg) scale(1.1);
+    color: #1d7a62;
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* Bottom-right icon hover effect - spin -180° + scale */
+  .story-icon-bottom-right:hover {
+    transform: rotate(-180deg) scale(1.1);
+    color: #1d7a62;
+    transition: all 0.5s ease-in-out;
+  }
+}
 
 
 /* ===============================
@@ -1071,6 +1125,8 @@ body {
   position: relative;
   width: 100%;
   min-height: 930px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Image - NO CHANGES */
@@ -1123,25 +1179,25 @@ body {
 }
 
 .point-2 {
-  top: 140px;
+  top: 130px;
   left: 340px;
 }
 
 .point-3 {
   top: 250px;
-  left: 510px;
+  left: 520px;
   max-width: 410px;
 }
 
 .point-4 {
   top: 440px;
-  left: 620px;
+  left: 640px;
   max-width: 430px;
 }
 
 .point-5 {
   top: 700px;
-  left: 600px;
+  left: 620px;
   max-width: 360px;
 }
 
@@ -1149,7 +1205,7 @@ body {
 .kahal-method-text {
   position: absolute;
   left: 5px !important;
-  top: 50%;
+  top: 52%;
   transform: translateY(-50%);
   z-index: 2;
   text-align: center;
@@ -1198,7 +1254,7 @@ body {
 
   .kahal-image-wrap {
     width: 620px;
-    left: 0;
+    left: -20px;
   }
 
   .point {
@@ -1216,12 +1272,12 @@ body {
   /* YOUR TABLET POSITIONS - KEPT AS IS */
   .point-1 {
     top: 20px;
-    left: 120px;
+    left: 110px;
   }
 
   .point-2 {
     top: 130px;
-    left: 300px;
+    left: 290px;
   }
 
   .point-3 {
@@ -1245,6 +1301,13 @@ body {
   .kahal-method-text span {
     font-size: 28px;
   }
+
+  /* ===== KAHAL METHOD TEXT ON IMAGE - NO CHANGES ===== */
+.kahal-method-text {
+  left: 25px !important;
+  top: 52%;
+ 
+}
 }
 
 /* ===================================
@@ -1281,8 +1344,8 @@ body {
   }
 
   .kahal-image-wrap {
-    width: 270px;
-    left: -10px;
+    width: 250px;
+    left: -20px;
   }
 
   .point {
@@ -1307,30 +1370,38 @@ body {
 
   .point-2 {
     top: 70px;
-    left: 120px;
+    left: 110px;
   }
 
   .point-3 {
     top: 125px;
-    left: 195px;
+    left: 180px;
     max-width: 145px;
   }
 
   .point-4 {
-    top: 220px;
-    left: 245px;
+    top: 200px;
+    left: 225px;
     max-width: 150px;
   }
 
   .point-5 {
-    top: 340px;
-    left: 240px;
+    top: 310px;
+    left: 220px;
     max-width: 145px;
   }
 
   .kahal-method-text span {
-    font-size: 12px;
+    font-size: 11px;
   }
+
+  /* ===== KAHAL METHOD TEXT ON IMAGE - NO CHANGES ===== */
+.kahal-method-text {
+  
+  left: 15px !important;
+  top: 51%;
+ 
+}
 }
 
 /* ===================================

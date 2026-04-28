@@ -637,7 +637,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-bottom: -57px;
+    margin-bottom: -62px;
   }
 
   .hero-img img {
@@ -756,7 +756,7 @@ body {
 @media (min-width: 1600px) and (max-width: 2500px) {
 
   .hero-bg-leftcenter {
-    top: 65%;
+    top: 69%;
     width: 500px
   }
 
